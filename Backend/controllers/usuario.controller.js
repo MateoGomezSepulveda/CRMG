@@ -1,4 +1,4 @@
-// const Usuario = require('../models/Usuario.js');
+const Usuario = require('../models/Usuario.js');
 
 const getUsuarios = async (req, res) =>{
     res.status(403).json({

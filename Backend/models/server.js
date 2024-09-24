@@ -1,4 +1,5 @@
 const express = require('express');
+const { dbConnection } = require('../database/config.js');
 
 class Server {
     constructor(){
@@ -10,7 +11,14 @@ class Server {
             usuariosPath: '/api/usuarios'
         }
 
+        this.connectDB();
+
+
         this.routes();
+    }
+
+    async connectDB(){
+        await dbConnection();
     }
 
     routes(){
