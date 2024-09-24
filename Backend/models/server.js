@@ -12,13 +12,19 @@ class Server {
         }
 
         this.connectDB();
-
+        
+        this.middlewares();
 
         this.routes();
     }
 
     async connectDB(){
         await dbConnection();
+    }
+
+    middlewares(){
+        // Leer y parsear
+        this.app.use(express.json());
     }
 
     routes(){
