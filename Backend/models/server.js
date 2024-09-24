@@ -6,6 +6,15 @@ class Server {
         
         this.port = process.env.PORT 
         
+        this.paths = {
+            usuariosPath: '/api/usuarios'
+        }
+
+        this.routes();
+    }
+
+    routes(){
+        this.app.use(this.paths.usuariosPath, require("../routes/usuario.routes.js"));
     }
 
     listen(){
