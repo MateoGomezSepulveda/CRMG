@@ -1,4 +1,6 @@
 const Usuario = require('../models/Usuario.js');
+const bcryptjs = require('bcryptjs');
+
 
 // mostrar todos los usuarios que tengan el estado: true
 const getUsuarios = async (req, res) =>{
@@ -22,6 +24,11 @@ const postUsuarios = async (req, res) =>{
     
     const { nombre, email, password } = req.body;
     const usuario = new Usuario({nombre, email, password});
+
+    // Encriptar una contraseña
+
+    const salt = bcryptjs.genSaltSync();
+    usuario.password = bcryptjs.hashSync(password, salt);
 
     await usuario.save();
     res.json({
