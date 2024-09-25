@@ -22,8 +22,8 @@ const getUsuarios = async (req, res) =>{
 
 const postUsuarios = async (req, res) =>{
     
-    const { nombre, email, password } = req.body;
-    const usuario = new Usuario({nombre, email, password});
+    const { nombre, email, password,rol } = req.body;
+    const usuario = new Usuario({nombre, email, password,rol});
 
     // Encriptar una contraseña
 
