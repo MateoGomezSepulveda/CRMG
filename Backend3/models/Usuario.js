@@ -6,17 +6,6 @@ const UsuarioSchema = Schema({
         required: [true, 'El nombre es obligatorio']
     },
 
-    email:{
-        type:String,
-        required: [true, 'El email es obligatorio'],
-        unique:true
-    },
-
-    password:{
-        type:String,
-        required: [true, 'La contraseña es obligatoria']
-    },
-
     imagen:{
         type:String,
         require: true,
@@ -35,9 +24,10 @@ const UsuarioSchema = Schema({
         default: true
     },
 
-    googleSignIn: {
-        type:Boolean,
-        default: true
+    compañia: {
+        type: Schema.Types.ObjectId,
+        ref: 'Compañia',
+        required: true
     }
 });
 

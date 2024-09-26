@@ -1,6 +1,4 @@
 const Usuario = require('../models/Usuario.js');
-const bcryptjs = require('bcryptjs');
-
 
 // mostrar todos los usuarios que tengan el estado: true
 const getUsuarios = async (req, res) =>{
@@ -20,22 +18,17 @@ const getUsuarios = async (req, res) =>{
     });
 }
 
-const postUsuarios = async (req, res) =>{
-    
-    const { nombre, email, password,rol } = req.body;
-    const usuario = new Usuario({nombre, email, password,rol});
+const postUsuarios = async (req, res) => {
+    const { nombre, rol, compañia } = req.body;
 
-    // Encriptar una contraseña
-
-    const salt = bcryptjs.genSaltSync();
-    usuario.password = bcryptjs.hashSync(password, salt);
-
-    await usuario.save();
-    res.json({
-        message: 'Usuario creado correctamente',
-        usuario
-    });
-}
+    try {
+        const usuario = new Usuario({ nombre, rol, compañia });
+        await usuario.save();
+        res.status(201).json(usuario);
+    } catch (error) {
+        res.status(500).json({ msg: 'Error al crear el usuario', error });
+    }
+};
 
 const deleteUsuarios = async (req, res) =>{
     const {id} = req.params

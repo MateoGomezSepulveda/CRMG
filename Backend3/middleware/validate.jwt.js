@@ -1,6 +1,6 @@
 const {response, request} = require('express');
 const jwt = require('jsonwebtoken');
-const Usuario = require('../models/Usuario.js');
+const Compañia = require('../models/Compañia.js');
 
 const validateJWT = async (req = request, res = response, next)=>{
     const token = req.header('x-api-token-jwt');
@@ -14,22 +14,22 @@ const validateJWT = async (req = request, res = response, next)=>{
 
         const {uid} = jwt.verify(token, process.env.SECRET_OR_PRIVATE_KEY);
 
-        const usuario = await Usuario.findById(uid);
+        const compañia = await Compañia.findById(uid);
         
-        if(!usuario){
+        if(!compañia){
             return res.status(401).json({
-                msg: 'Token no válido - usuario no existe DB'
+                msg: 'Token no válido - compañia no existe DB'
             })
         }
 
         if ( !usuario.estado ) {
             return res.status(401).json({
-                msg: 'Token no válido - usuario con estado: false'
+                msg: 'Token no válido - compañia con estado: false'
             })
         }
 
-        req.usuario = usuario; 
-        console.log("req usuario en validate",req.usuario);
+        req.compañia = compañia; 
+        console.log("req compañia en validate",req.compañia);
         next();
         
     } catch (error) {
