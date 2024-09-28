@@ -27,8 +27,16 @@ const validateCompany = async (_id = '') => {
     }
 };
 
+const findCompañiaById = async(id)=>{
+    const findCompañia = await Compañia.findById(id);
+    if(!findCompañia){
+        throw new Error(`El id de la categoria no existe ${id}`);
+    }
+}
+
 module.exports = {
     isValidRole,
     emailExiste,
-    validateCompany
+    validateCompany,
+    findCompañiaById
 }

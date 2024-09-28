@@ -43,8 +43,16 @@ const deleteCompañias = async (req, res) =>{
     // const usuario = await Usuario.findByIdAndDelete(id);
 
     // Borrado virtual 
-    const compañia = await Compañia.findByIdAndUpdate(id, {estado: false});
-    res.json(compañia)
+    const compañia = await Compañia.findByIdAndUpdate(id, { estado: false }, { new: true });
+
+    if (!compañia) {
+        return res.status(404).json({ msg: 'Compañía no encontrada' });
+    }
+
+    res.json({
+        msg: 'Compañía eliminada correctamente',
+        compañia
+    });
 }
 
 const putCompañias = async (req, res) =>{

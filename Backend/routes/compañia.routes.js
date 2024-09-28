@@ -2,7 +2,7 @@ const {Router} = require('express');
 const {check } = require ('express-validator');
 const { getCompañias, postCompañias, deleteCompañias, putCompañias} = require('../controllers/compañia.controller');
 const { validateDocuments } = require('../middleware/validate.documents.js');
-const { isValidRole, emailExiste } = require('../helpers/db.validators.js');
+const { isValidRole, emailExiste, findCompañiaById } = require('../helpers/db.validators.js');
 
 const router = Router();
 
@@ -18,7 +18,12 @@ router.post("/", [
     validateDocuments
 ], postCompañias);
 
-router.delete("/", deleteCompañias);
+router.delete("/:id",[
+    check('id', 'No es un id de Mongo válido').isMongoId(),
+    check('id').custom( findCompañiaById ),
+    validateDocuments,
+], deleteCompañias);
+
 router.put("/", putCompañias);
 
 
