@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #ffffff; 
+}
+
+.contenedor-login{
+    background-color: #000; 
+}
+
+.overlay-login {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.94);
+}
+
+.formulario-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 60px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: opacity 0.5s ease, transform 1s ease-in-out, z-index 0s linear 1s;
+  z-index: -1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.formulario-login input {
+  width: 70%;
+  padding: 15px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.formulario-login .login-button {
+  padding: 15rem ;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.formulario-login .input-container {
+  margin-bottom: 20px;
+}
+
+
+.formulario-login .login-button {
+  padding: 10px 20px;
+  background-color: #000000; 
+  color: #fff; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+
+.formulario-login .login-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.logo-form img{
+  width: 120px ;
+  height: 100px;
+  margin-top: 17px;
+  margin-bottom: 15px;
+}
+
+.formulario-login .small-text a {
+  color: #000;
+  text-decoration: underline;
+  
+}
+
+.small-text{
+  margin-top: 33px;
+}
+
+.contenedor-login.form-show .formulario-login {
+  transform: translate(-50%, -50%);
+  display: block;
+  z-index: 2;
+  width: 100% ;
+  height: 550px;
+}
+
+
+.logotipo.logo-loading {
+  animation: logoAnimation 3s linear infinite;
+}
+
+
+.profile-picture {
+  margin-top: 20px; 
+}
+
+.rounded-image {
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%; 
+  object-fit: cover; 
+  border: 2px solid #ec7f18; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.contenedor-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logotipo-container {
+  text-align: center;
+}
+
+.logotipo {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+
+.logotipo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.formulario-login {
+  text-align: center;
+}
+
+.profile-picture img {
+  width:  200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 30px;
+  
+}
+
+.user-name {
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+
+.fotologo{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+

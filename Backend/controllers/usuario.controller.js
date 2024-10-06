@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario.js');
+const bcryptjs = require('bcryptjs');
 
 // mostrar todos los usuarios que tengan el estado: true
 const getUsuarios = async (req, res) =>{
@@ -18,11 +19,28 @@ const getUsuarios = async (req, res) =>{
     });
 }
 
+const getUsuariosIdCompañia = async (req, res) => {
+    try {
+        const compañiaId = req.params.id;
+        const usuarios = await Usuario.find({ compañia: compañiaId });
+        res.json({ usuarios });
+    } catch (error) {
+        res.status(500).json({ msg: 'Error al obtener usuarios por compañía', error });
+    }
+}
+
+
 const postUsuarios = async (req, res) => {
-    const { nombre, rol, compañia } = req.body;
+    const { nombre, rol, compañia, password} = req.body;
 
     try {
-        const usuario = new Usuario({ nombre, rol, compañia });
+        const usuario = new Usuario({ nombre, rol, compañia, password });
+
+        // Encriptar una contraseña
+
+        const salt = bcryptjs.genSaltSync();
+        usuario.password = bcryptjs.hashSync(password, salt);
+
         await usuario.save();
         res.status(201).json(usuario);
     } catch (error) {
@@ -58,4 +76,5 @@ module.exports = {
     postUsuarios,
     deleteUsuarios,
     putUsuarios,
+    getUsuariosIdCompañia
 }

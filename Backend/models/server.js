@@ -12,7 +12,8 @@ class Server {
         this.paths = {
             compañiaPath: '/api/company',
             authPath : '/api/auth',
-            usuarioPath : '/api/usuarios'
+            usuarioPath : '/api/usuarios',
+            authUsuarioPath : '/api/auth'
         }
 
         this.connectDB();
@@ -37,6 +38,7 @@ class Server {
         this.app.use(this.paths.compañiaPath, require("../routes/compañia.routes.js"));
         this.app.use(this.paths.authPath, require("../routes/auth.routes.js"));
         this.app.use(this.paths.usuarioPath, require("../routes/usuario.routes.js"));
+        this.app.use(this.paths.authUsuarioPath, require("../routes/authUsuarios.routes.js"));
     }
 
     listen(){
