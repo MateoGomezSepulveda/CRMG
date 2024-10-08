@@ -1,38 +1,113 @@
-.App {
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  height: 100vh;
+}
+
+/* ---------------------------------------Parte izquierda--------------------------------------- */
+
+@media (max-width: 768px) {
+  .contenedorr {
+    flex-direction: column;
+  }
+
+  .parte-izquierda, .parte-media, .parte-derecho {
+    width: 100%;
+  }
+
+  .tarjetaHelados {
+    padding-left: 100%;
+  }
+}
+
+.parte-izquierda {
+
+  background-color: #ffffff;
+  border-right: 2px solid rgb(0, 0, 0);
+  padding-left: 2rem;
+  padding-right: 4rem;
+  border-radius: 10px;
+}
+  
+.form-login-img{
+  background-color: rgb(0, 0, 0);
+  border-radius: 100%;
+  width: 8rem;
+  height: 8rem;
+}
+
+.perfil{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size:large;  
+  font-weight: 800;
+}
+
+.perfil h3{
+  font-size:large;  font-weight: 800;
+  margin-top: 10px;
+}
+
+.cardsCategoria {
+  padding-left: 0rem;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cardsCategoria a{
+  font-size:large;  
+  font-weight: 400;
+  color: black;
+  text-decoration: none;
+}
+
+.cardsCategoria a:hover{
+  background-color:#000000;
+  color: #fff9f9;
+}
+
+/* ------------------------------------------Parte-Media------------------------------------- */
+
+.parte-media {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  flex: 2;
+  padding: 2rem;
+  border-radius: 12px;
+  border-right: 2px solid rgb(0, 0, 0);
+  overflow-y: auto;
+}
+
+.parte-media h2{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.tarjetaHelados {
+  flex-wrap: wrap;
+  justify-content: space-around;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-left: 3rem; 
+  padding: 2rem;   
+  gap: 4rem;
+  
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* ----------------------------------------Parte-Derecha-------------------------------------- */
+.parte-derecho {
+background-color: #ffffff;
+  flex: 0.6;
+  padding: 2rem;
+  border-radius: 10px;
+  overflow-y: auto;
+} 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
