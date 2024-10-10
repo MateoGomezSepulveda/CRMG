@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate , Link } from 'react-router-dom';
 import '../../App.css';
+import CardCategorias from '../cardCategorias';
 // import Button2 from './button';
 // import TarjetasProductos from '../Helados/TarjetasHelados';
 
@@ -39,23 +40,15 @@ function Admin() {
         <div className="contenedor">
             <div className={`parte-izquierda ${usuario ? 'autenticado' : ''}`}>
                 {usuario && (
-                    <div className="perfil">
-                    <div className='form-login-img' dangerouslySetInnerHTML={{ __html: imagen }} />
+                <div className="perfil">
+                {/* IMAGEN CON URL */}
+                <img className='form-login-img' src={imagen} alt={`${nombre}'s avatar`}/>
+                    {/* IMAGEN CON SVG */}
+                    {/* <div className='form-login-card-img' dangerouslySetInnerHTML={{ __html: usuario.imagen }} /> */}
                     <h3>{nombre}</h3>
-                        <p>{rol}</p>
-                    </div>
+                </div>
                 )}
-                <table className="table table-custom">
-                    {/* <tbody className="cardsCategoria" id="datosCategoria">
-                        {categorias.map((categoria, index) => (
-                            <tr key={index}>
-                                <td>
-                                <a href={`/${categoria.nombre}`}>{categoria.nombre}</a>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody> */}
-                </table>
+                <CardCategorias/>
             </div>
             <div className="parte-media">
                 <div>

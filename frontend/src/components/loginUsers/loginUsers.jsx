@@ -75,7 +75,10 @@ export default function LoginUsers() {
         <div className="form-login">
             {usuarios.map((usuario, index) => (
                 <div key={index} className='form-login-card'>
-                    <div className='form-login-card-img' dangerouslySetInnerHTML={{ __html: usuario.imagen }} />
+                    {/* IMAGEN CON URL */}
+                    <img className='form-login-img' src={usuario.imagen} alt={`${usuario.nombre}'s avatar`}/>
+                    {/* IMAGEN CON SVG */}
+                    {/* <div className='form-login-card-img' dangerouslySetInnerHTML={{ __html: usuario.imagen }} /> */}
                     <h3>{usuario.nombre}</h3>
                     <form onSubmit={(e) => handleLogin(e, usuario._id, usuario.nombre)}>
                         <input
