@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export default function LoginUsers() {
     const [usuarios, setUsuarios] = useState([]);
     const id = localStorage.getItem('Usuario');
+    const companyData = JSON.parse(localStorage.getItem('companyData')); // Datos de la compañía
     const [passwords, setPasswords] = useState({});
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function LoginUsers() {
             try {
                 const responseUsuarios = await axios.get(`http://localhost:8022/api/usuarios/${id}`);
                 setUsuarios(responseUsuarios.data.usuarios);
+                console.log('Datos de la compañía:', companyData);
             } catch (error) {
                 console.error('Error al obtener usuarios:', error);
             }
@@ -70,6 +72,8 @@ export default function LoginUsers() {
             }));
         }
     };
+
+    
 
     return (
         <div className="form-login">

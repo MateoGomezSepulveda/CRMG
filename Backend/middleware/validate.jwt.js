@@ -9,7 +9,7 @@ const validateJWT = async (req = request, res = response, next)=>{
         return res.status(401).json({
             msg: 'No hay token en la peticion'
         });
-    }   
+    }
     try {
 
         const {uid} = jwt.verify(token, process.env.SECRET_OR_PRIVATE_KEY);
@@ -24,12 +24,12 @@ const validateJWT = async (req = request, res = response, next)=>{
 
         if ( !usuario.estado ) {
             return res.status(401).json({
-                msg: 'Token no válido - compañia con estado: false'
+                msg: 'Token no válido - usuario con estado: false'
             })
         }
 
         req.usuario = usuario; 
-        console.log("req compañia en validate",req.usuario);
+        console.log("req usuario en validate",req.usuario);
         next();
         
     } catch (error) {

@@ -6,11 +6,12 @@ function CardCategorias(){
 
     const [categorias, setCategorias] = useState([]);
     const token = localStorage.getItem('token');
+    const id = localStorage.getItem('Usuario');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const responseCategorias = await fetch('http://localhost:8022/api/categorias');
+                const responseCategorias = await fetch(`http://localhost:8022/api/categorias/${id}`);
                 if (!responseCategorias.ok) {
                     throw new Error('Error al obtener los datos de categorías');
                 }

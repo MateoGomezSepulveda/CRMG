@@ -3,7 +3,7 @@ import '../../App.css';
 import CardCategorias from '../cardCategorias';
 // import TarjetasProductos from '../Helados/TarjetasHelados';
 
-function User() {
+function User({idCompañia}) {
     const [usuario, setUsuario] = useState(true);
     const nombre = localStorage.getItem('nombre');
     const imagen = localStorage.getItem('imagen');
@@ -21,7 +21,7 @@ function User() {
                     <h3>{nombre}</h3>
             </div>
                 )}
-                    <CardCategorias/>
+                    <CardCategorias companyId={idCompañia}/>
             </div>
             <div className="parte-media">
                 <div>

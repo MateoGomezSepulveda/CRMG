@@ -49,13 +49,20 @@ const postUsuarios = async (req, res) => {
 };
 
 const deleteUsuarios = async (req, res) =>{
-    const {id} = req.params
+    const {id} = req.params;
+    console.log('ID recibido para eliminación:', id);
     // Borrado fisico desde DB
     // const usuario = await Usuario.findByIdAndDelete(id);
 
     // Borrado virtual 
-    const usuario = await Usuario.findByIdAndUpdate(id, {estado: false});
-    res.json(usuario)
+    const usuario = await Usuario.findByIdAndUpdate(id, {estado: false}, { new: true });
+    if (!usuario) {
+        return res.status(404).json({ msg: 'usuario no encontrada' });
+    }
+    res.json({
+        msg: 'usuario eliminado correctamente',
+        usuario
+    })
 }
 
 const putUsuarios = async (req, res) =>{
