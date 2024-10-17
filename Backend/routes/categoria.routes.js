@@ -48,4 +48,3 @@ router.delete('/:id', [
 ],deleteCategoria)
 
 module.exports = router;
-

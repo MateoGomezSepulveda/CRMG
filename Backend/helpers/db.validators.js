@@ -52,11 +52,21 @@ const userExistsById = async(id) =>{
     }
 }
 
+const findCategoriaById = async(id)=>{
+    const findCategoria = await Categoria.findById(id);
+    if(!findCategoria){
+        throw new Error(`El id de la categoria no existe ${id}`);
+    }
+}
+
+
+
 module.exports = {
     isValidRole,
     emailExiste,
     validateCompany,
     findCompañiaById,
     userExistsById,
-    validateUsuario
+    validateUsuario,
+    findCategoriaById
 }

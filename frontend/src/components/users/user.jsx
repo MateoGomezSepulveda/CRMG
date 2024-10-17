@@ -32,7 +32,6 @@ function User({idCompañia}) {
                         <tr></tr>
                     </thead>
                     <tbody className="cards" id="datosHelados">
-                        {/* <TarjetasProductos /> */}
                     </tbody>
                 </table>
             </div>

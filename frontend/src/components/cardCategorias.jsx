@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 
@@ -31,10 +32,10 @@ function CardCategorias(){
             {categorias.map((categoria, index) => (
                 <tr key={index}>
                 <td>
-                  <a href={`/${categoria.nombre}`} className="card-link">
-                    <div className="cards-categoria-img" dangerouslySetInnerHTML={{ __html: categoria.imagen }} />
+                <Link to={`/${categoria.nombre}`} className="card-link">
+                <div className="cards-categoria-img" dangerouslySetInnerHTML={{ __html: categoria.imagen }} />
                     <span>{categoria.nombre}</span>
-                  </a>
+                </Link>
                 </td>
               </tr>
             ))}
